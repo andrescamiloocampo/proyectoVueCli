@@ -1,5 +1,4 @@
 <template>
-      <main class="cabeza">
         <header>
           <h1>Proyecto Vue</h1>
           <div class="menu" @click="estado = !estado">
@@ -10,7 +9,6 @@
         </header>
         <section class="ventana" v-show="estado">
         </section>
-      </main>
   </template>
   
   <script>
@@ -26,23 +24,7 @@
   }
   </script>
   
-  <style>
-  *{
-    margin: 0%;
-    padding: 0%;
-  }
-  
-  html,body{
-    width: 100%;
-    height: 100%;
-  }
-  
-  main{
-    width: 100%;
-    height: 1200px;
-    min-width: 500px;
-  }
-  
+  <style>    
   header{
     font-family: sans-serif;
     display: flex;
@@ -85,7 +67,7 @@
     width: 350px;
     height: 400px;
     background-color: red;
-    /* position: absolute; */
+    position: absolute; 
     margin-left: 73%;
     margin-top: 1%;
     background-color: white;
