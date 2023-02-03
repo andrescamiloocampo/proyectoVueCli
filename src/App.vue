@@ -3,86 +3,140 @@
     <cabeza></cabeza>
     <section class="encabezado">
       <article id="primero">
-        <img src="src\imagenProtada.jpg" alt="imagen">
+        <h1 class="title" style="font-size: 28px">Título provisional</h1>
+        <br />
+        <p>
+          Lorem ipsum dolor sit amet consectetur, adipisicing elit. Assumenda
+          magni a nemo, ut nihil quae expedita libero numquam optio
+          reprehenderit repudiandae sed explicabo suscipit dolorem accusamus hic
+          ipsam! Molestiae, ipsa. Placeat a esse illo sapiente fuga voluptatum
+          iure incidunt fugit quae blanditiis delectus nemo commodi optio, quos,
+          facilis rem. Esse, dolorum minima ut sequi similique ratione
+          distinctio placeat consequatur sit. Perferendis tenetur, atque quod
+          aliquam distinctio, commodi corrupti numquam quia rem quibusdam
+          adipisci qui officiis provident! Unde nihil veritatis nisi eligendi,
+          accusamus voluptatibus. Molestias officiis ipsam vero. Magni, vero
+          aut! Lorem ipsum dolor, sit amet consectetur adipisicing elit. Iusto
+          nesciunt tempora quo quisquam, temporibus quibusdam rerum voluptatum
+          sint
+        </p>
       </article>
-      <article id="segundo"></article>
-      <article id="tercero"></article>
+      <article id="segundo">
+        <button @click="bajar">Adelante</button>
+      </article>
+      <article id="tercero">
+        <img src="./assets/imagenPortada.jpg" alt="imagen" />
+      </article>
     </section>
     <MyComent></MyComent>
   </main>
 </template>
 
 <script>
-import cabeza from './components/cabeza.vue'
-import MyComent from './components/MyComent.vue'
+import cabeza from "./components/cabeza.vue";
+import MyComent from "./components/MyComent.vue";
 export default {
-  name: 'App',
+  name: "App",
   components: {
     cabeza,
-    MyComent
+    MyComent,
+  },
+  methods:{
+    bajar(){
+      window.scroll({
+        top:850,
+        behavior: 'smooth'
+      })
+    }
   }
-}
+};
 </script>
 
 <style>
-  *{
-    margin: 0%;
-    padding: 0%;
-  }
-  
-  html,body{
-    width: 100%;
-    height: 100%;
-  }
+* {
+  margin: 0%;
+  padding: 0%;
+}
 
-  main{
-    width: 100%;
-    height: 1200px;
-    min-width: 500px;
-  }
+html,
+body {
+  width: 100%;
+  height: 100%;
+}
 
-  .encabezado{
-    width: 80%;
-    height: 40%;
-    margin-left: 5%;
-    background-color: white;
-    margin-top: 5%;
-    box-shadow: 4px 3px 9px -3px rgba(0,0,0,0.69);
-    padding: 5%;
-  }
+main {
+  width: 100%;
+  height: 1200px;
+  min-width: 500px;
+}
 
-  .encabezado article{
-    background-color: black;
-    margin-right:5%;
-  }
+.encabezado {
+  width: 80%;
+  height: 40%;
+  margin-left: 5%;
+  margin-top: 5%;
+  box-shadow: 4px 3px 9px -3px rgba(0, 0, 0, 0.69);
+  padding: 5%;
+}
 
-  #primero{
-   width: 50%;
-   height: 60%;
-   margin-bottom: 4.5%;
-  }
+.encabezado article {
+  background-color: black;
+  margin-right: 5%;
+}
 
-  /* #primero img{
-    width: 100%;
-  } */
+#primero {
+  width: 50%;
+  height: 60%;
+  margin-bottom: 4.5%;
+  background-color: #fff;
+  font-family: sans-serif;
+  overflow-y:auto;
+}
 
-  #segundo{
-    width: 50%;
-    height:30%;
-  }
+#tercero img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
 
-  #tercero{
-    width: 45%;
-    height: 100%;
-    margin-left:55%;
-    margin-top: -44.5%;
-    z-index: 2;
-  }
+#segundo {
+  width: 50%;
+  height: 30%;
+  display: flex;
+  background-color:white;
+  justify-content: flex-start;
+  align-items: flex-start;
+}
 
-  @media(max-width: 600px){
-    #tercero{
-      margin-top: -110%;
-      height: 90%;
-    }
+#segundo button{
+  font-size: 20px;
+  padding-top: 3%;
+  padding-bottom: 3%;
+  padding-left: 30%;
+  padding-right: 30%;
+  cursor:pointer;
+  background-color: rgb(230, 255, 1);
+  font-family: monospace;
+  border: none;
+}
+
+#segundo button:hover{
+  background-color: rgb(79, 226, 91);
+  color: white;
+}
+
+#tercero {
+  width: 45%;
+  height: 100%;
+  margin-left: 55%;
+  margin-top: -44.5%;
+  z-index: 2;
+  display: flex;
+}
+@media (max-width: 600px) {
+  #tercero {
+    margin-top: -110%;
+    height: 90%;
   }
+}
 </style>

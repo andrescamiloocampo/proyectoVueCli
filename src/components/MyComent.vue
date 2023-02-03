@@ -2,6 +2,9 @@
   <main class="MyComent">
     <section class="comments">
       <article class="comentario" v-for="com in comentarios" v-bind:key="com">
+        <div class="delete" @click="deletePost(com)">
+          <img src="@/assets/delete.png" alt="">
+        </div>
         <h1>{{ com.name }}</h1>
         <br />
         <p>{{ com.body }}</p>
@@ -34,6 +37,7 @@ export default {
       titulo: "",
       correo: "",
       comentario: "",
+      indice:0
     };
   },
   mounted() {
@@ -61,6 +65,9 @@ export default {
       this.correo = '' 
       this.titulo = ''
     },
+    deletePost(com){
+      this.comentarios.splice(com.id-1,1)
+    }
   },
 };
 </script>
@@ -131,5 +138,17 @@ export default {
 .formulario .btn:hover {
   background-color: rgb(79, 226, 91);
   color: white;
+}
+
+.delete{
+  width: 30px;
+  height: 30px;
+  margin-left: 95%;
+  cursor: pointer;
+}
+
+.delete img{
+  width: 100%;
+  height: 100%;
 }
 </style>
