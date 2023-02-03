@@ -8,6 +8,9 @@
           </div>
         </header>
         <section class="ventana" v-show="estado">
+          <article class="subVentana">Iniciar sesión</article>
+          <article class="subVentana">Registrarse</article>
+          <article class="subVentana">Ayuda y configuración</article>
         </section>
   </template>
   
@@ -72,6 +75,25 @@
     margin-top: 1%;
     background-color: white;
     box-shadow: 4px 3px 9px -3px rgba(0,0,0,0.69);
+    flex-direction: column;
+    font-family: sans-serif;
+    /* justify-content: left; */
+    align-items: center;
+    justify-content: space-evenly;
+    font-size: 22px;
+    border-radius: 5px;
+  }
+
+  .subVentana{
+    padding: 5%;
+    width: 62%;
+    box-shadow: 4px 3px 9px -3px rgba(0,0,0,0.69);
+    transition: .3s;
+    cursor:pointer;
+  }
+
+  .subVentana:hover{
+    width: 63%;
   }
 
   @media(max-width:1000px){

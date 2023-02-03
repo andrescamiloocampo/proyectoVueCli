@@ -29,6 +29,7 @@
       </article>
     </section>
     <MyComent></MyComent>
+    <footer></footer>
   </main>
 </template>
 
@@ -138,5 +139,11 @@ main {
     margin-top: -110%;
     height: 90%;
   }
+}
+
+footer{
+  width: 100%;
+  height: 80px;
+  background-color: black;
 }
 </style>
