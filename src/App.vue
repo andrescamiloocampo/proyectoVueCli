@@ -28,6 +28,7 @@
         <img src="./assets/imagenPortada.jpg" alt="imagen" />
       </article>
     </section>
+    <bodyArticles></bodyArticles>
     <MyComent></MyComent>
     <footer></footer>
   </main>
@@ -36,16 +37,18 @@
 <script>
 import cabeza from "./components/cabeza.vue";
 import MyComent from "./components/MyComent.vue";
+import bodyArticles from "./components/bodyArticles.vue"
 export default {
   name: "App",
   components: {
     cabeza,
     MyComent,
+    bodyArticles
   },
   methods:{
     bajar(){
       window.scroll({
-        top:850,
+        top:900,
         behavior: 'smooth'
       })
     }

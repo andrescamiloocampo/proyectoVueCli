@@ -85,6 +85,18 @@ export default {
   overflow-y: auto;
 }
 
+.comments::-webkit-scrollbar-track{
+  background: black;
+}
+
+.comments::-webkit-scrollbar{
+  width: 18px;
+}
+
+.comments::-webkit-scrollbar-thumb{
+  background-color: white;
+  width: 5px;
+}
 .comentario {
   font-family: sans-serif;
   width: 90%;
