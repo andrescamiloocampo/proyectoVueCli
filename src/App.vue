@@ -20,9 +20,7 @@
           nesciunt tempora quo quisquam, temporibus quibusdam rerum voluptatum
           sint
         </p>
-      </article>
-      <article id="segundo">
-        <button @click="bajar">Adelante</button>
+          <button @click="bajar">Adelante</button>
       </article>
       <article id="tercero">
         <img src="./assets/imagenPortada.jpg" alt="imagen" />
@@ -81,6 +79,8 @@ main {
   margin-top: 5%;
   box-shadow: 4px 3px 9px -3px rgba(0, 0, 0, 0.69);
   padding: 5%;
+  display: flex;
+  flex-direction: row;
 }
 
 .encabezado article {
@@ -90,9 +90,9 @@ main {
 
 #primero {
   width: 50%;
-  height: 60%;
-  margin-bottom: 4.5%;
-  background-color: #fff;
+  height: 90%;
+  margin-bottom: 5%;
+  background-color: white;
   font-family: sans-serif;
   overflow-y:auto;
 }
@@ -103,16 +103,7 @@ main {
   object-fit: cover;
 }
 
-#segundo {
-  width: 50%;
-  height: 30%;
-  display: flex;
-  background-color:white;
-  justify-content: flex-start;
-  align-items: flex-start;
-}
-
-#segundo button{
+#primero button{
   font-size: 20px;
   padding-top: 3%;
   padding-bottom: 3%;
@@ -122,25 +113,27 @@ main {
   background-color: rgb(230, 255, 1);
   font-family: monospace;
   border: none;
+  margin-top: 10%;
 }
 
-#segundo button:hover{
+#primero button:hover{
   background-color: rgb(79, 226, 91);
   color: white;
 }
 
-#tercero {
-  width: 45%;
-  height: 100%;
-  margin-left: 55%;
-  margin-top: -44.5%;
-  z-index: 2;
-  display: flex;
-}
-@media (max-width: 600px) {
-  #tercero {
-    margin-top: -110%;
-    height: 90%;
+@media (max-width: 1000px) {
+  #primero{
+    order:2;
+    width: 90%;
+    margin-left: 5%;
+    margin-top: 5%;
+  }
+  #tercero{
+    order:1;
+  }
+  .encabezado{
+    flex-direction: column;
+    height: 65%;
   }
 }
 

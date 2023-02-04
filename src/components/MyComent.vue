@@ -13,8 +13,8 @@
     </section>
 
     <form action="#" class="formulario" @submit.prevent="publish">
-      <input type="text" placeholder="Post name" v-model="titulo" />
-      <input type="email" placeholder="Email" v-model="correo" />
+      <input type="text" placeholder="Post name" v-model="titulo" required/>
+      <input type="email" placeholder="Email" v-model="correo" required/>
       <textarea
         name="Comentario"
         id=""
@@ -22,6 +22,7 @@
         rows="10"
         placeholder="Ingrese su comentario"
         v-model="comentario"
+        required
       ></textarea>
       <input class="btn" type="submit" value="Ingresar comentario" />
     </form>
