@@ -9,10 +9,9 @@
   <section class="publicaciones">
     <article
       class="publicacion"
-      v-for="publicacion in publicaciones"
-      v-bind:key="publicacion"
+      v-for="publicacion in publicaciones" v-bind:key="publicacion"
     >
-      <h1 v-bind:class="{active:encontrado,'color':'yellow'}">{{ publicacion.name }}</h1>
+      <h1 :class="{found:publicacion.active}">{{ publicacion.name }}</h1>
       <br /><br />
       <p>{{ publicacion.body }}</p>
       <h2>
@@ -50,6 +49,7 @@ export default {
           name: "Bienvenido",
           body: "Realice sus publicaciones aqui",
           indice: 0,
+          active: false
         },
       ],
       publicar: false,
@@ -73,10 +73,7 @@ export default {
     buscar(){
       let busqueda = this.buscado;
       this.publicaciones.forEach(function (publicacion) {
-        if (publicacion.name == busqueda) {
-          console.log("Encontrado",this.encontrado);
-          this.encontrado = true
-        }
+        (publicacion.name == busqueda)?publicacion.active = true : publicacion.active = false
       });
     },
   },
@@ -224,6 +221,10 @@ form #publicar {
 
   .publicacion h2 {
     margin-top: 45%;
+  }
+
+  .found{
+    color: rgb(79, 226, 91);
   }
 }
 </style>
