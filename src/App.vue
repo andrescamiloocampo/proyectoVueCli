@@ -137,6 +137,24 @@ main {
   }
 }
 
+html::-webkit-scrollbar {
+  width: 1px;
+}
+html::-webkit-scrollbar-thumb {
+  background-color: black;
+}
+
+#primero::-webkit-scrollbar-track {
+  background: #fff;
+}
+
+#primero::-webkit-scrollbar {
+  width: 1px;
+}
+#primero::-webkit-scrollbar-thumb {
+  background-color: black;
+}
+
 footer{
   width: 100%;
   height: 80px;
