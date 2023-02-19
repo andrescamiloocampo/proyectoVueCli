@@ -1,24 +1,15 @@
 <template>
-  <input
-    type="text"
-    id="buscador"
-    placeholder="Buscar publicación"
-    v-model="buscado"
-    @mouseleave="buscar"
-  />
+  <input type="text" id="buscador" placeholder="Buscar publicación" v-model="buscado" @change="buscar" />
   <section class="publicaciones">
-    <article
-      class="publicacion"
-      v-for="publicacion in publicaciones" v-bind:key="publicacion"
-    >
-      <h1 :class="{found:publicacion.active}">{{ publicacion.name }}</h1>
+    <article class="publicacion" v-for="publicacion in publicaciones" v-bind:key="publicacion">
+      <h1 :class="{ found: publicacion.active }">{{ publicacion.name }}</h1>
       <br /><br />
       <p>{{ publicacion.body }}</p>
       <h2>
         {{
           publicacion.indice == 0
-            ? "0" + publicacion.indice
-            : publicacion.indice
+          ? "0" + publicacion.indice
+          : publicacion.indice
         }}
       </h2>
     </article>
@@ -26,9 +17,10 @@
   <button @click="publicar = !publicar">Hacer publicación</button>
 
   <section class="formulario" v-show="publicar">
-    <form action="#" @submit.prevent="publish">
-      <input type="text" placeholder="Titulo" v-model="titulo" id="texto" />
-      <textarea name="" id="" cols="30" rows="10" v-model="cuerpo"></textarea>
+    <form action="#" @submit.prevent="publishB">
+      <input type="text" placeholder="Titulo:" v-model="titulo" id="texto" required/>
+      <textarea name="" id="" cols="30" rows="10" v-model="cuerpo" placeholder="Ingrese su publicacion" required>
+      </textarea>
       <input type="submit" value="Publicar" @click="publishB" id="publicar" />
     </form>
   </section>
@@ -66,19 +58,25 @@ export default {
         body: this.cuerpo,
         indice: this.indice,
       };
+      this.publicar = !this.publicar;
       this.publicaciones.push(content);
       this.titulo = "";
       this.cuerpo = "";
     },
-    buscar(){
+    buscar() {
       let busqueda = this.buscado;
       this.publicaciones.forEach(function (publicacion) {
-        (publicacion.name == busqueda)?publicacion.active = true : publicacion.active = false
+        // (publicacion.name == busqueda)?publicacion.active = true : publicacion.active = false
+        if (publicacion.name == busqueda) {
+          publicacion.active = true
+        } else {
+          publicacion.active = false
+        }
       });
     },
   },
 
-  mounted(){
+  mounted() {
   }
 };
 </script>
@@ -93,6 +91,7 @@ export default {
   margin-left: 10%;
   width: 77.8%;
 }
+
 .publicaciones {
   width: 80%;
   height: 40%;
@@ -112,6 +111,7 @@ export default {
 .publicaciones::-webkit-scrollbar {
   width: 1px;
 }
+
 .publicaciones::-webkit-scrollbar-thumb {
   background-color: black;
 }
@@ -167,7 +167,7 @@ button {
   margin-top: 2%;
 }
 
-button:hover {
+button:hover,form #publicar:hover{
   background-color: rgb(79, 226, 91);
   color: white;
   cursor: pointer;
@@ -176,35 +176,50 @@ button:hover {
 form {
   display: flex;
   flex-direction: column;
-  width: 80%;
-  margin-left: 10%;
-  margin-top: 5%;
+  width: 100%;
 }
 
 form textarea {
   resize: none;
-  height: 60%;
+  height: 64%;
+  border: none;
 }
 
 form #texto {
   padding-top: 2.5%;
   padding-bottom: 2.5%;
+  border: none;
+  border-bottom: solid;
+  border-width: 1px;
+  border-color: lightgray;
 }
 
 form #publicar {
   padding-top: 2.5%;
   padding-bottom: 2.5%;
+  font-family: monospace;
+  font-size: 22px;
+  border: none;
+  margin-bottom: 0%;
+  cursor: pointer;
+  background-color: rgb(230, 255, 1);
 }
 
 .formulario {
   width: 50%;
-  height: 30%;
+  height: 25%;
   margin-left: 25%;
-  margin-top: 5%;
+  margin-top: -35%;
   display: flex;
-  background-color: red;
+  background-color: #fff;
+  box-shadow: 4px 3px 9px -3px rgba(0, 0, 0, 0.69);
   font-size: 24px;
   font-family: monospace;
+  position: relative;
+}
+
+.found {
+  color: rgb(79, 226, 91);
 }
 
 @media (max-width: 800px) {
@@ -213,6 +228,7 @@ form #publicar {
     width: 80%;
     margin-left: 10%;
   }
+
   .publicacion {
     width: 80%;
     height: 100%;
@@ -223,8 +239,9 @@ form #publicar {
     margin-top: 45%;
   }
 
-}
-.found{
-  color: rgb(79, 226, 91);
+  .formulario{
+    background-color:none;
+  }
+  
 }
 </style>
