@@ -223,8 +223,8 @@ form #publicar {
     margin-top: 45%;
   }
 
-  .found{
-    color: rgb(79, 226, 91);
-  }
+}
+.found{
+  color: rgb(79, 226, 91);
 }
 </style>
